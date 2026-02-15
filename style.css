@@ -678,8 +678,9 @@ body.sidebar-open .sidebar-toggle {
 
 /* ============================================================
    HUB / NAV PAGE — Card-style children
+   Only applied via JS class on simple hub pages (≤20 direct children)
    ============================================================ */
-body:has(#expand-all) .main > ul {
+body.hub-cards .main > ul {
   list-style: none;
   padding-left: 0;
   display: grid;
@@ -687,7 +688,7 @@ body:has(#expand-all) .main > ul {
   gap: 0.6rem;
   margin-top: 0.5rem;
 }
-body:has(#expand-all) .main > ul > li {
+body.hub-cards .main > ul > li {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
@@ -698,25 +699,25 @@ body:has(#expand-all) .main > ul > li {
   gap: 0.5rem;
   list-style: none;
 }
-body:has(#expand-all) .main > ul > li:hover {
+body.hub-cards .main > ul > li:hover {
   border-color: rgba(110, 207, 110, 0.3);
   background: var(--bg-surface-hover);
   transform: translateY(-1px);
 }
-body:has(#expand-all) .main > ul > li .folder-icon {
+body.hub-cards .main > ul > li .folder-icon {
   height: 22px;
   width: 22px;
 }
-body:has(#expand-all) .main > ul > li a {
+body.hub-cards .main > ul > li a {
   font-weight: 500;
   font-size: 0.9rem;
 }
 /* Nested sublists inside hub pages keep normal styling */
-body:has(#expand-all) .main > ul > li ul {
+body.hub-cards .main > ul > li ul {
   display: block;
   padding-left: 1rem;
 }
-body:has(#expand-all) .main > ul > li ul li {
+body.hub-cards .main > ul > li ul li {
   background: none;
   border: none;
   padding: 0.15rem 0;
@@ -775,7 +776,7 @@ body:has(#expand-all) .main > ul > li ul li {
   .main {
     padding: 1rem 1rem 3rem;
   }
-  body:has(#expand-all) .main > ul {
+  body.hub-cards .main > ul {
     grid-template-columns: 1fr;
   }
 }

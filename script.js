@@ -155,6 +155,23 @@ function collapseExpandMain() {
 
 collapseExpandMain();
 
+// ---- HUB PAGE CARD LAYOUT DETECTION ----
+// Only apply card-style grid on simple hub pages (few direct children, no deep nesting)
+(function detectHubCards() {
+    var expandBtn = document.getElementById('expand-all');
+    if (!expandBtn) return;
+
+    var mainUl = document.querySelector('.main > ul');
+    if (!mainUl) return;
+
+    var directChildren = mainUl.children.length;
+    // Only card-ify if ≤20 direct children (simple hub like "Alarm Module" with 4 items)
+    // Pages like "Repair and Diagnosis" with 31+ top-level categories should stay as a tree
+    if (directChildren <= 20) {
+        document.body.classList.add('hub-cards');
+    }
+})();
+
 
 // ============================================================
 // UTILITY — Detect page context
